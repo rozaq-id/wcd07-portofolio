@@ -1,0 +1,41 @@
+.about {
+  text-align: justify;
+  max-width: 100%;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.about-title {
+  width: 50%;
+}
+
+.about-content {
+  width: 50%;
+}
+
+.about h2 {
+  margin-bottom: 15px;
+  color: #4a4a4a;
+  font-size: 1.8rem;
+}
+
+.about p {
+  color: #4a4a4a;
+  line-height: 1.2em;
+  text-align: start;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+  }
+  
+  .about-title, .about-content {
+    width: 100%;
+    padding: 1rem;
+  }
+}

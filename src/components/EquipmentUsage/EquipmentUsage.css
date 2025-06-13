@@ -1,0 +1,101 @@
+.equipment-usage {
+  padding: 40px 40px 0 0 ;
+}
+
+.equipment-usage h2 {
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #333;
+}
+
+.equipment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.equipment-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.equipment-info {
+  display: flex;
+  align-items: center;
+  width: 150px;
+}
+
+.equipment-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: #333;
+  color: white;
+  border-radius: 3px;
+  margin-right: 15px;
+  font-size: 16px;
+}
+
+.icon {
+  font-size: 16px;
+}
+
+.equipment-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.equipment-bar-container {
+  flex: 1;
+  position: relative;
+  height: 8px;
+  background-color: #d5cebf;
+  margin-left: 20px;
+  border-radius: 4px;
+}
+
+.equipment-bar {
+  height: 100%;
+  background-color: #333;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.equipment-percentage {
+  position: absolute;
+  right: -40px;
+  top: -5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Icons specific styles */
+.go-icon, .node-icon, .sql-icon, .vue-icon, 
+.influx-icon, .cloudflare-icon, .python-icon, 
+.docker-icon, .chatgpt-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .equipment-usage {
+    padding: 20px;
+  }
+  
+  .equipment-info {
+    width: 120px;
+  }
+  
+  .equipment-bar-container {
+    margin-left: 10px;
+  }
+}

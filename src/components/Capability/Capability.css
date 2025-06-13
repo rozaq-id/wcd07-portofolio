@@ -1,0 +1,40 @@
+.capability {
+  max-width: 100%;
+}
+
+.capability-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.capability-title {
+  width: 50%;
+}
+
+.capability-content {
+  width: 50%;
+}
+
+.capability h2 {
+  margin-bottom: 15px;
+  color: #4a4a4a;
+  font-size: 1.8rem;
+}
+
+.capability-list {
+  padding-left: 30px;
+  line-height: 2;
+  color: #4a4a4a;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .capability-container {
+    flex-direction: column;
+  }
+  
+  .capability-title, .capability-content {
+    width: 100%;
+    padding: 1rem;
+  }
+}

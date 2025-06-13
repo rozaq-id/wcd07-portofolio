@@ -1,0 +1,149 @@
+.contact h2 {
+  margin-bottom: 15px;
+}
+
+.contact-intro {
+  margin-bottom: 25px;
+}
+
+.contact-info-wrapper {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.contact-info, .social-links {
+  flex: 0 0 48%;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.contact-icon {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.contact-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: #333;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  padding: 3px 0;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  transform: translateX(5px);
+}
+
+.social-icon {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: #333;
+}
+
+.social-link:hover .social-icon svg {
+  fill: #555;
+}
+
+.message-form-container {
+  margin-top: 40px;
+}
+
+.message-form-container h3 {
+  margin-bottom: 15px;
+}
+
+.section p {
+  line-height: 1.2em;
+  text-align: start;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  flex: 1;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: rgb(227, 211, 181);
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 15px;
+}
+
+textarea {
+  height: 150px;
+  resize: none;
+}
+
+.message-form .btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.message-form .btn:hover {
+  background-color: #555;
+}
+
+@media (max-width: 768px) {
+  .contact-info-wrapper {
+    flex-direction: column;
+  }
+  
+  .contact-info, .social-links {
+    flex: 0 0 100%;
+  }
+  
+  .social-links {
+    margin-top: 20px;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}

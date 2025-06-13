@@ -1,0 +1,55 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f2ebe1;
+  color: #333;
+  line-height: 1.6;
+}
+
+h2 {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 30px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 22px;
+  color: #333;
+}
+
+p, li, span, input, button {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.section {
+  margin-bottom: 40px;
+  border-top: 2px dashed #999;
+  padding: 40px 0;
+}
+
+.btn {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: 'Courier New', Courier, monospace;
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: #444;
+}
