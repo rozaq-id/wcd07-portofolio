@@ -1,54 +1,105 @@
-# React + TypeScript + Vite
+# Portfolio Project - WCD07 Individual Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project was built as part of the WCD07 class to demonstrate skills in modern web development using React and TypeScript. It represents a reimplementation of a previous portfolio built with Framer [rozaq.id](https://rozaq.id), now using React components and modern JavaScript practices.
 
-Currently, two official plugins are available:
+## Technology Stack
+- **React 19**: For building the user interface
+- **TypeScript**: For type-safe code
+- **Vite**: As the build tool and development server
+- **CSS**: For styling components
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Project Structure
+```
+wcd07-portofolio/
+│
+├── public/                  # Static assets
+│   ├── vite.svg            # Vite logo
+│   └── images/             # Image assets
+│       └── profile-image.png
+│
+├── src/                     # Source code
+│   ├── assets/             # Additional assets
+│   │   └── react.svg
+│   │
+│   ├── components/         # React components organized by section
+│   │   ├── About/          # About section
+│   │   │   ├── About.css
+│   │   │   └── About.tsx
+│   │   │
+│   │   ├── Capability/     # Skills and capabilities section
+│   │   │   ├── Capability.css
+│   │   │   └── Capability.tsx
+│   │   │
+│   │   ├── Contact/        # Contact information section
+│   │   │   ├── Contact.css
+│   │   │   ├── Contact.tsx
+│   │   │   └── icons/
+│   │   │       └── index.tsx
+│   │   │
+│   │   ├── EquipmentUsage/ # Equipment and tools section
+│   │   │   ├── EquipmentUsage.css
+│   │   │   ├── EquipmentUsage.tsx
+│   │   │   └── icons/
+│   │   │       └── index.tsx
+│   │   │
+│   │   ├── Footer/         # Footer section
+│   │   │   ├── Footer.css
+│   │   │   └── Footer.tsx
+│   │   │
+│   │   ├── Header/         # Header/Navigation section
+│   │   │   ├── Header.css
+│   │   │   └── Header.tsx
+│   │   │
+│   │   ├── Layout/         # Main layout component
+│   │   │   ├── Layout.css
+│   │   │   └── Layout.tsx
+│   │   │
+│   │   └── Noise/          # Visual noise effect component
+│   │       ├── Noise.tsx
+│   │       └── images/
+│   │           └── noise.png
+│   │
+│   ├── App.css             # Main app styles
+│   ├── App.tsx             # Main app component
+│   ├── index.css           # Global styles
+│   ├── main.tsx            # Entry point
+│   └── vite-env.d.ts       # TypeScript declarations for Vite
+│
+├── eslint.config.js        # ESLint configuration
+├── package.json            # Project dependencies and scripts
+├── tsconfig.app.json       # TypeScript configuration for app
+├── tsconfig.json           # Main TypeScript configuration
+├── tsconfig.node.json      # TypeScript configuration for Node
+└── vite.config.ts          # Vite configuration
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Component Structure
+The project follows a modular component-based architecture:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **Layout** - Provides the main structure for the portfolio
+2. **Header** - Contains navigation and introduction
+3. **About** - Displays personal information and background
+4. **Capability** - Showcases skills and expertise
+5. **EquipmentUsage** - Lists tools and technologies used
+6. **Contact** - Provides contact information
+7. **Footer** - Contains final information and credits
+8. **Noise** - A visual effect component for the background
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## Running the Project
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
+---
+
+© 2025 Abdur Rozaq - WCD07 Portfolio Project
