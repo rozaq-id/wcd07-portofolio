@@ -1,30 +1,41 @@
+import React, { Suspense, lazy } from "react";
 import "./App.css";
 import Layout from "./components/Layout/Layout";
-import Header from "./components/Header/Header";
-import About from "./components/About/About";
-import Capability from "./components/Capability/Capability";
-import EquipmentUsage from "./components/EquipmentUsage/EquipmentUsage";
-import Contact from "./components/Contact/Contact";
-import Footer from "./components/Footer/Footer";
 import Noise from "./components/Noise/Noise";
+import LoadingSpinner from "./components/LoadingSpinner/LoadingSpinner";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
+import { usePerformanceMonitor } from "./hooks";
 
-function App() {
+// Lazy load components for better performance
+const Header = lazy(() => import("./components/Header/Header"));
+const About = lazy(() => import("./components/About/About"));
+const Capability = lazy(() => import("./components/Capability/Capability"));
+const EquipmentUsage = lazy(
+  () => import("./components/EquipmentUsage/EquipmentUsage")
+);
+const Contact = lazy(() => import("./components/Contact/Contact"));
+const Footer = lazy(() => import("./components/Footer/Footer"));
+
+const App: React.FC = () => {
+  usePerformanceMonitor("App");
+
   return (
-    <>
-      {" "}
-      <Noise opacity={0.15} />
-      <div className="app">
+    <ErrorBoundary>
+      <div className="app" role="main">
+        <Noise opacity={0.15} />
         <Layout>
-          <Header />
-          <About />
-          <Capability />
-          <EquipmentUsage />
-          <Contact />
-          <Footer />{" "}
+          <Suspense fallback={<LoadingSpinner />}>
+            <Header />
+            <About />
+            <Capability />
+            <EquipmentUsage />
+            <Contact />
+            <Footer />
+          </Suspense>
         </Layout>
       </div>
-    </>
+    </ErrorBoundary>
   );
-}
+};
 
 export default App;

@@ -1,5 +1,13 @@
 .equipment-usage {
-  padding: 40px 40px 40px 0 ;
+  padding: 40px 40px 40px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.equipment-usage.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .equipment-usage h2 {
@@ -19,6 +27,14 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 10px;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.equipment-item.animate-in {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .equipment-info {
@@ -62,7 +78,12 @@
   height: 100%;
   background-color: #333;
   border-radius: 4px;
-  transition: width 0.5s ease;
+  transition: width 1s ease-out;
+  transform-origin: left;
+}
+
+.equipment-usage:not(.animate-in) .equipment-bar {
+  width: 0 !important;
 }
 
 .equipment-percentage {
@@ -75,9 +96,15 @@
 }
 
 /* Icons specific styles */
-.go-icon, .node-icon, .sql-icon, .vue-icon, 
-.influx-icon, .cloudflare-icon, .python-icon, 
-.docker-icon, .chatgpt-icon {
+.go-icon,
+.node-icon,
+.sql-icon,
+.vue-icon,
+.influx-icon,
+.cloudflare-icon,
+.python-icon,
+.docker-icon,
+.chatgpt-icon {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,11 +117,11 @@
   .equipment-usage {
     padding: 20px;
   }
-  
+
   .equipment-info {
     width: 120px;
   }
-  
+
   .equipment-bar-container {
     margin-left: 10px;
   }

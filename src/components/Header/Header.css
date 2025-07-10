@@ -1,66 +1,182 @@
 .header {
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.header h1 {
-  font-size: 200px;
-  font-family: fantasy;
-  font-weight: unset;
-  color: #333;
+.header__title {
+  font-size: clamp(4rem, 11vw, 11rem);
+  font-family: fantasy, "Brush Script MT", cursive;
+  font-weight: normal;
+  color: var(--color-text);
+  margin: 0;
+  padding-bottom: var(--spacing-xl);
+  line-height: 0.8;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.1em;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all var(--transition-slow);
+}
+
+.header--animated .header__title {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .profile-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: var(--spacing-lg);
 }
 
 .profile-image-container {
   position: relative;
-  margin-bottom: 15px;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all var(--transition-slow) 0.2s;
+}
+
+.header--animated .profile-image-container {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .profile-image {
-  width: 300px;
-  height: 300px;
+  width: clamp(200px, 40vw, 300px);
+  height: clamp(200px, 40vw, 300px);
   object-fit: cover;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-base);
+  border: 3px solid var(--color-text);
 }
 
-.profile-badge {
-  position: absolute;
-  top: 5px;
-  right: -10px;
-  background-color: white;
-  padding: 2px 8px;
-  border: 1px solid #333;
-  border-radius: 4px;
-  font-size: 14px;
+.profile-image:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-lg), 0 0 0 4px rgba(51, 51, 51, 0.1);
 }
 
 .profile-name {
   text-align: center;
-  background-color: #333333;
-  padding: 15px 20px;
+  background-color: var(--color-primary);
+  padding: var(--spacing-lg) var(--spacing-xl);
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all var(--transition-slow) 0.4s;
+}
+
+.header--animated .profile-name {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .profile-name h2 {
-  font-size: 46px;
-  margin: 0 0 5px;
-  color: #e8e1d3;
-  font-weight: bold;
-  font-family: 'Arial', sans-serif;
-  letter-spacing: 1px;
+  font-size: clamp(1.5rem, 6vw, 2.875rem);
+  margin: 0 0 var(--spacing-sm);
+  color: var(--color-accent);
+  font-weight: 700;
+  font-family: var(--font-primary);
+  letter-spacing: 0.02em;
   line-height: 1.2;
 }
 
 .subtitle {
-  font-size: 20px;
-  color: #e8e1d3;
-  margin: 0 auto;
-  text-align: center;
-  display: block;
-  width: fit-content;
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  color: var(--color-accent);
+  margin: 0;
+  font-weight: 400;
+  font-family: var(--font-primary);
+  opacity: 0.9;
+}
+
+/* Focus states for accessibility */
+.profile-image:focus {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .header__title {
+    text-shadow: none;
+    font-weight: bold;
+  }
+
+  .profile-image {
+    border-width: 4px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .header__title,
+  .profile-image-container,
+  .profile-name {
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
+
+  .profile-image:hover {
+    transform: none;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 var(--spacing-md);
+  }
+
+  .profile-name {
+    padding: var(--spacing-md) var(--spacing-lg);
+    width: calc(100% - var(--spacing-md));
+  }
+
+  .profile-container {
+    gap: var(--spacing-md);
+  }
+}
+
+/* Print styles */
+@media print {
+  .header__title {
+    font-size: 3rem;
+    color: black !important;
+  }
+
+  .profile-name {
+    background-color: white !important;
+    color: black !important;
+    border: 2px solid black;
+  }
+
+  .profile-name h2,
+  .subtitle {
+    color: black !important;
+  }
+}
+
+/* Animation keyframes for advanced effects */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Performance optimization */
+.header * {
+  will-change: transform, opacity;
 }

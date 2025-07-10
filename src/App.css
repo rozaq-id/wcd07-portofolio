@@ -2,4 +2,39 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Ensure proper stacking context */
+.app > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Performance optimizations */
+.app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Focus management for accessibility */
+.app:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .app {
+    filter: contrast(150%);
+  }
+}
+
+/* Print styles */
+@media print {
+  .app {
+    background: white !important;
+    color: black !important;
+  }
 }

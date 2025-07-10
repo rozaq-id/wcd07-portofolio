@@ -1,5 +1,13 @@
 .capability {
   max-width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.capability.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .capability-container {
@@ -27,13 +35,25 @@
   color: #4a4a4a;
 }
 
+.capability-item {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.capability-item.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* Responsive adjustments for mobile */
 @media (max-width: 768px) {
   .capability-container {
     flex-direction: column;
   }
-  
-  .capability-title, .capability-content {
+
+  .capability-title,
+  .capability-content {
     width: 100%;
     padding: 1rem;
   }
